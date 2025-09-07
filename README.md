@@ -5,6 +5,7 @@ After scene is opened or closed it creates file 'scene_name - [SelectionHistory]
 
 It is deep improvement of this free asset by 'Staggart Creations': https://assetstore.unity.com/packages/tools/utilities/selection-history-184204
 All copyright goes to them!
+
 Improved using Qwen AI.
 
 Open the tool trough
