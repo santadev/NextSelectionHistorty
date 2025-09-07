@@ -1,0 +1,85 @@
+#### Selection History ###
+
+Это 
+	// Staggart Creations http://staggart.xyz
+	// Copyright protected under Unity asset store EULA
+	
+	https://assetstore.unity.com/packages/tools/utilities/selection-history-184204
+
+	Free-тул
+
+
+  ОТНЫНЕ ВЕДУ САМ
+
+	+ https://chat.qwen.ai/c/c33198e8-8d6e-443d-8d99-0e561a3e11e2
+
+www.tairex.com
+
+
+
+===========================
+### Функционал - Functional ()
+===========================
+	
+(Sorry for my grammar BTW)
+
+ATTENTION!
+After scene is opened or closed it creates file 'scene_name - [SelectionHistory]' near it. 
+
+It is deep improvement of this free asset by 'Staggart Creations': https://assetstore.unity.com/packages/tools/utilities/selection-history-184204
+All copyright goes to them!
+Improved using Qwen AI.
+
+
+Features:
+    Tracking of selection change in scene and project.
+    Save-load them to file for each scnene.
+           ATTENTION!
+           After scene is opened or closed it creates file 'scene_name - [SelectionHistory]' near it. 
+   Restoring link to scene objects in hierarchy by saving path to them.
+
+Possible problems:
+   When two or more scenes are opened saving may be unpredictable.
+
+Use on your own risk.
+
+www.tairex.com
+
+	----
+
+
+	Запоминание
+		Объект всегда добавляется в начало истории
+		Затем происходит поиск дубликатов в следующих N строках (где N = DuplicateSearchDepth)
+		Если дубликат найден - он удаляется из более глубокой позиции	
+
+
+
+	Запись-чтение
+	
+		рядом со сценой лежит Scriptable: имя-сцены - [SelectionHistory]
+			
+			Скриптабл тут:
+			o:\Dev\Next\Project\Assets\Next\X_SelectionHistory\Editor\SelectionHistoryWindowScene.cs
+			
+
+
+		автомат
+			Теперь сделай ещё один файл SelectionHistoryWindow_Tracker.cs
+			
+			В него помести следующий функционал:
+			Он следит за тем какая сцена активна и сколько их загружено. Когда в менеджере сцен остаётся одна загруженная сцена. То:
+			1. история предидущёе сцены автоматически записыватеся.
+			2. а история новой, оставшейся одной сцены автоматически загружается.
+			
+			Так же история автоматически записывается если:
+			* Юнити закрывается. И при этом одна только сцена загружена.
+			* Юнити открывается. И при этом одна только сцена загружена.		
+
+
+
+=========
+### TODO ()
+==========
+
+	...
