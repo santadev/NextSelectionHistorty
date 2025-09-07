@@ -3,7 +3,7 @@
 ATTENTION!
 After scene is opened or closed it creates file 'scene_name - [SelectionHistory]' near it. 
 
-It is deep improvement of this free asset by 'Staggart Creations': https://assetstore.unity.com/packages/tools/utilities/selection-history-184204
+It is deep improvement of this free asset for Unity3D by 'Staggart Creations': https://assetstore.unity.com/packages/tools/utilities/selection-history-184204
 All copyright goes to them!
 
 Improved using Qwen AI: https://chat.qwen.ai/
