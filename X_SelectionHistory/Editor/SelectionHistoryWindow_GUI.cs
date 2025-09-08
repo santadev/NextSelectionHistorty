@@ -1,4 +1,4 @@
-﻿/*
+/*
  *
  */
 
@@ -117,6 +117,12 @@ public partial class SelectionHistoryWindow : EditorWindow
                 EditorGUILayout.LabelField("Duplicate search", EditorStyles.boldLabel, GUILayout.Width(100f));
                 DuplicateSearchDepth = EditorGUILayout.IntField(DuplicateSearchDepth, GUILayout.MaxWidth(40f));
                 EditorGUILayout.LabelField("depth", GUILayout.Width(40f));
+            }
+            
+            using (new EditorGUILayout.HorizontalScope())
+            {
+                EditorGUILayout.LabelField("Keep Play Mode", EditorStyles.boldLabel, GUILayout.Width(100f));
+                KeepPlayMode = EditorGUILayout.Toggle(KeepPlayMode, GUILayout.MaxWidth(40f));
             }
             
             EditorGUILayout.Space();
