@@ -1,5 +1,8 @@
-﻿/*
- * https://chat.qwen.ai/c/c33198e8-8d6e-443d-8d99-0e561a3e11e2
+/*
+ *
+ * https://github.com/santadev/NextSelectionHistory
+ * 
+ *      https://chat.qwen.ai/c/c33198e8-8d6e-443d-8d99-0e561a3e11e2
  *
  */
 
@@ -63,6 +66,12 @@ public partial class SelectionHistoryWindow : EditorWindow
     {
         get { return EditorPrefs.GetInt(PlayerSettings.productName + "_SH_DuplicateSearchDepth", 10); }
         set { EditorPrefs.SetInt(PlayerSettings.productName + "_SH_DuplicateSearchDepth", Mathf.Max(1, value)); }
+    }
+    
+    public static bool KeepPlayMode
+    {
+        get { return EditorPrefs.GetBool(PlayerSettings.productName + "_SH_KeepPlayMode", true); }
+        set { EditorPrefs.SetBool(PlayerSettings.productName + "_SH_KeepPlayMode", value); }
     }
 
     private AnimBool settingAnimation;
