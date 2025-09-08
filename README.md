@@ -13,11 +13,12 @@ Open the tool trough
      You can then dock it where ever you like
 
 Features:
-    Tracking of selection change in scene and project.
-    Save-load them to file for each scnene.
+    * Tracking of selection change in scene and project.
+    * Save-load them to file for each scnene.
            ATTENTION!
            After scene is opened or closed it creates file 'scene_name - [SelectionHistory]' near it. 
-   Restoring link to scene objects in hierarchy by saving path to them.
+   * Restoring link to scene objects in hierarchy by saving path to them.
+   * Keep changes in Play mode with setting for it
 
 Possible problems:
    When two or more scenes are opened saving may be unpredictable.
