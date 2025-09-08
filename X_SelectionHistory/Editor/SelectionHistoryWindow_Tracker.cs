@@ -1,4 +1,4 @@
-﻿/*
+/*
  *
  */
 
@@ -69,6 +69,25 @@ public partial class SelectionHistoryWindow : EditorWindow
                 SaveHistoryForCurrentScene();
             }
         }
+        else if (state == PlayModeStateChange.EnteredEditMode)
+        {
+            // При выходе из PlayMode проверяем настройку
+            if (SelectionHistoryWindow.KeepPlayMode)
+            {
+                // Не перезагружаем историю - оставляем как есть
+                // Но обновляем lastActiveScenePath чтобы избежать последующей загрузки
+                lastActiveScenePath = EditorSceneManager.GetActiveScene().path;
+                UnityEngine.Debug.Log("<b>SelectionHistoryWindow:</b> Keeping Play Mode history (Keep Play Mode setting is enabled)");
+            }
+            else
+            {
+                // Перезагружаем историю из файла
+                if (IsSingleSceneLoaded())
+                {
+                    LoadHistoryForCurrentScene();
+                }
+            }
+        }
     }
     
     private static void OnEditorQuitting()
@@ -102,6 +121,9 @@ public partial class SelectionHistoryWindow : EditorWindow
     
     private static void CheckSceneStateChange()
     {
+        // Не обрабатываем изменения сцен во время PlayMode
+        if (EditorApplication.isPlayingOrWillChangePlaymode) return;
+        
         if (IsSingleSceneLoaded())
         {
             string currentScenePath = EditorSceneManager.GetActiveScene().path;
@@ -125,6 +147,9 @@ public partial class SelectionHistoryWindow : EditorWindow
     
     private static bool IsSingleSceneLoaded()
     {
+        // Не проверяем сцены во время PlayMode
+        if (EditorApplication.isPlayingOrWillChangePlaymode) return false;
+        
         int loadedSceneCount = 0;
         for (int i = 0; i < EditorSceneManager.sceneCount; i++)
         {
