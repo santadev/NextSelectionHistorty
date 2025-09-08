@@ -14,7 +14,7 @@ Open the tool trough
 
 Features:
    * Tracking of selection change in scene and project.
-   * Save-load them to file for each scnene.
+   * Save-load them to file for each scene.
    * Restoring link to scene objects in hierarchy by saving path to them.
    * Keep changes in Play mode with setting for it
 
