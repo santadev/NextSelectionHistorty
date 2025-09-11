@@ -15,6 +15,7 @@
 //============================================================================================================================================
 using System.Linq;
 using UnityEditor;
+using UnityEditor.Compilation;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 
@@ -37,6 +38,7 @@ public partial class SelectionHistoryWindow : EditorWindow
         // Подписываемся на события
         EditorApplication.playModeStateChanged += OnPlayModeStateChanged;
         EditorApplication.quitting += OnEditorQuitting;
+        CompilationPipeline.assemblyCompilationStarted += OnAssemblyCompilationStarted;
         
         // Подписываемся на события SceneManager
         EditorSceneManager.sceneOpened += OnSceneOpened;
@@ -56,6 +58,16 @@ public partial class SelectionHistoryWindow : EditorWindow
         {
             lastActiveScenePath = EditorSceneManager.GetActiveScene().path;
             LoadHistoryForCurrentScene();
+        }
+    }
+    
+    private static void OnAssemblyCompilationStarted(string assemblyPath)
+    {
+        // Перед компиляцией сохраняем историю, если загружена одна сцена
+        if (IsSingleSceneLoaded())
+        {
+            SaveHistoryForCurrentScene();
+            UnityEngine.Debug.Log("<b>SelectionHistoryWindow:</b> History saved before compilation");
         }
     }
     
